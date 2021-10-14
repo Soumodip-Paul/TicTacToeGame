@@ -1,0 +1,103 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap'); */
+/*font-family: 'Roboto', sans-serif; */
+
+* {padding: 0;margin: 0;}
+
+.bl-0{border-left: 0 !important;}
+.bt-0{border-top: 0 !important;}
+.br-0{border-right: 0 !important;}
+.bb-0{border-bottom: 0 !important;}
+
+nav {
+    display: flex;
+    color: #fff;
+    height: 10vh;
+    align-items: center;
+    background-color: #2f2f36;
+}
+.NavBrand {
+    font-size: 1.25rem;
+    font-family: "Roboto", sans-serif;
+    margin: 0 12px;
+}
+
+.container{
+    display: flex;
+    justify-content: space-around;
+    margin: 5vh 0;
+}
+
+.gameContainer {
+    display: grid;
+    grid-template-rows: repeat(3,10vw);
+    grid-template-columns: repeat(3,10vw);
+    margin: 1vh 1vw;
+    font-family: 'Roboto', sans-serif;
+}
+.gameContainer>.grid {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #000;
+    cursor: pointer;
+}
+
+.gameContainer>.grid:hover{
+    background-color: #e0e0ff;
+}
+
+.gameContainer>.grid>.box {
+    font-size: 10vmin;
+}
+.scoreContainer {
+    margin: 1vh 1vw;
+    font-family: 'Roboto', sans-serif;
+}
+.scoreContainer>h1 {
+    margin: 1vh 0;
+}
+.scoreContainer>hr {
+    margin: 2vh 0;    
+}
+.scoreContainer>.score {
+    font-size: larger;
+    display: flex;
+    align-items: center;
+}
+#reset {
+    margin-left: auto;
+    padding: 1vh 2vw;
+    border: none;
+    color: #eee;
+    background-color: #3636b5;
+    border-radius: 1rem;
+    cursor: pointer;
+}
+#turn {
+    padding: 1vh 1vw;
+}
+
+@media only screen and (max-width: 800px)  {
+    .container {
+        flex-wrap: wrap-reverse;
+    }
+    .gameContainer {
+        grid-template-rows: repeat(3,25vw);
+        grid-template-columns: repeat(3,25vw);
+        margin: 2vh 0 6vh;
+    }
+    .scoreContainer {
+        margin: 1vh 3vw;
+    }
+    .scoreContainer>.score {
+        position: fixed;
+        background: #dbdbdb;
+        width: 90vw;
+        bottom: 0;
+        left: 0;
+        padding: 2vh 5vw;
+    }
+    #reset {
+        padding: 1vh 4vw;
+    }
+}
