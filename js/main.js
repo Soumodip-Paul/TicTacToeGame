@@ -1,5 +1,4 @@
 console.log("Welcome to our Tic Tac Toe Game")
-let turn = 'X';
 const winArray = [
     [0, 1, 2],
     [3, 4, 5],
@@ -22,12 +21,12 @@ const checkWin = () => {
             boxes[e[0]].innerText === boxes[e[1]].innerText &&
             boxes[e[2]].innerText === boxes[e[1]].innerText
         ) {
-            document.getElementById('turn').innerText = `${turn} has won the game`
+            document.getElementById('turn').innerText = `${turn === myTurn ? 'You' : turn} has won the game`
             gameWon = true
         }
         else gameWon = gameWon || false
     })
-    if(gameWon) setTimeout(reset, 1000)
+    if (gameWon) setTimeout(reset, 3000)
     return gameWon
 }
 
@@ -44,14 +43,24 @@ const isGameOver = () => {
 
 const main = () => {
     const grids = document.getElementsByClassName('grid')
-    Array.from(grids).forEach(e => {
+    Array.from(grids).forEach((e, index) => {
         e.addEventListener('click', () => {
             let gridText = e.getElementsByClassName('box')[0].innerText
             if (gridText === '') {
-                e.getElementsByClassName('box')[0].innerText = turn
-                if (!checkWin()) {
-                    turn = changeTurn()
-                    document.getElementById('turn').innerText = `Turn for ${turn}`
+                if (turn === myTurn) {
+                    SendMessage({ index })
+                    e.getElementsByClassName('box')[0].innerText = turn
+                    if (!checkWin()) {
+                        turn = changeTurn()
+                        document.getElementById('turn').innerText = turn === myTurn ? `Your Turn (${myTurn})` : `Turn for ${turn}`
+                    }
+                }
+                else if (remoteData !== null) {
+                    e.getElementsByClassName('box')[0].innerText = turn
+                    if (!checkWin()) {
+                        turn = changeTurn()
+                        document.getElementById('turn').innerText = turn === myTurn ? `Your Turn (${myTurn})` : `Turn for ${turn}`
+                    }
                 }
             }
 
@@ -59,12 +68,14 @@ const main = () => {
     })
 }
 
-main()
+// main()
 
 const reset = () => {
     turn = 'X'
-    document.getElementById('turn').innerText = `Turn for ${turn}`
+    myTurn = myTurn === 'X' ? 'O' : 'X'
+    SendMessage({ turn: myTurn })
+    document.getElementById('turn').innerText = turn === myTurn ? `Your Turn (${myTurn})` : `Turn for ${turn}`
     Array.from(document.getElementsByClassName('box')).forEach(e => e.innerHTML = '')
 }
 
-document.getElementById('reset').onclick = reset
+// document.getElementById('reset').onclick = reset

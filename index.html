@@ -31,13 +31,13 @@
             <h1>Welcome To Our Tic Tac Toe Game</h1>
             <hr />
             <div class="score">
-                <span id="turn">Turn of X</span>
-                <button id="reset">Reset</button>
+                <span id="turn"></span>
+                <button id="start">Start</button>
             </div>
-            <button id="p2pconn" onclick="ConnectToPeer(prompt('Enter another peer'))"> Connect </button>
-            <button id="p2pconnM" onclick="SendMessage()"> Message </button>
         </div>
     </div>
+    <script src="./js/peerjs.min.js"></script>
+    <script src="./js/peer.js"></script>
     <script src="./js/main.js"></script>
     
 </body>
