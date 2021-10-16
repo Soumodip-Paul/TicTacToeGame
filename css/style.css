@@ -25,6 +25,7 @@ nav {
 
 .gameContainer {
     display: grid;
+    position: relative;
     grid-template-rows: repeat(3,10vw);
     grid-template-columns: repeat(3,10vw);
     margin: 1vh 1vw;
@@ -45,6 +46,16 @@ nav {
 .gameContainer>.grid>.box {
     font-size: 10vmin;
 }
+
+#line {
+    transform-origin: left;
+    position: absolute;
+    height: 3px;
+    background-color: #f00;
+    width: 0;
+    transition: width 0.8s ease-in;
+}
+
 .scoreContainer {
     margin: 1vh 1vw;
     font-family: 'Roboto', sans-serif;
