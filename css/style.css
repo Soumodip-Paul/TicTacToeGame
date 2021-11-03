@@ -53,7 +53,7 @@ nav {
     height: 3px;
     background-color: #f00;
     width: 0;
-    transition: width 0.8s ease-in;
+    transition: width 900ms ease-in;
 }
 
 .scoreContainer {

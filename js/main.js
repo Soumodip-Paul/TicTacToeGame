@@ -29,7 +29,7 @@ const checkWin = () => {
         }
         else gameWon = gameWon || false
     })
-    if (gameWon) setTimeout(reset, 3000)
+    if (gameWon) setTimeout(reset, 2000)
     return gameWon
 }
 
@@ -81,11 +81,10 @@ const reset = () => {
         turn = 'X'
         myTurn = myTurn === 'X' ? 'O' : 'X'
         if (turn === myTurn)SendMessage({ turn: myTurn })
-        console.log(myTurn);
         document.getElementById('line').style.transform = null
         document.getElementById('turn').innerText = turn === myTurn ? `Your Turn (${myTurn})` : `Turn for ${turn}`
         Array.from(document.getElementsByClassName('box')).forEach(e => e.innerHTML = '')
-    }, 800)
+    }, 1000)
 }
 
 // document.getElementById('reset').onclick = reset
